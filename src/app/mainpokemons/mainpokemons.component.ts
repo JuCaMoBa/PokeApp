@@ -10,10 +10,11 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class MainpokemonsComponent implements OnInit {
   pokemons: any[] = [];
-
   modalDataStats: any[] = [];
-
   modalDataName: string = '';
+  pokemonSelected: any[] = [];
+  selectIndex: any[] = []
+
 
   constructor(
     config: NgbModalConfig,
@@ -31,8 +32,6 @@ export class MainpokemonsComponent implements OnInit {
         this.pokemons.sort((a, b) => a.id - b.id);
       });
     }
-
-    console.log(this.pokemons);
   }
 
   open(content: any, stats: any, name: any) {
@@ -40,4 +39,21 @@ export class MainpokemonsComponent implements OnInit {
     this.modalDataStats = stats;
     this.modalDataName = name;
   }
+
+  selectPokemon(pokemon: any, index: any) {
+
+    if (this.pokemonSelected.length < 2) {
+      this.pokemonSelected.push(pokemon)
+      this.selectIndex[index] = !this.selectIndex[index]
+    } else{
+      alert('Enfrentalos a una Batalla para luego escoger otra pareja de pokemons ')
+    }
+
+  }
+
+  battle() {
+this.selectIndex=[]
+this.pokemonSelected=[]
+  }
+
 }
