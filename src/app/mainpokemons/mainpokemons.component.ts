@@ -41,19 +41,18 @@ export class MainpokemonsComponent implements OnInit {
   }
 
   selectPokemon(pokemon: any, index: any) {
-
     if (this.pokemonSelected.length < 2) {
       this.pokemonSelected.push(pokemon)
       this.selectIndex[index] = !this.selectIndex[index]
-    } else{
+    } else {
       alert('Enfrentalos a una Batalla para luego escoger otra pareja de pokemons ')
     }
 
   }
 
   battle() {
-this.selectIndex=[]
-this.pokemonSelected=[]
+    this.selectIndex = []
+    this.pokemonSelected = []
   }
 
 }
